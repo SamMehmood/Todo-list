@@ -15,6 +15,10 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
     useEffect(() => {
         if (editTodo) {
             setInput(editTodo.title);
+            const newTodo = todos.map((todo) =>
+            todo.id === editTodo.id ? { ...todo, edit: true} : { ...todo, edit: false}
+            );
+            setTodos(newTodo)
         } else {
             setInput("")
         }
@@ -25,12 +29,12 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
     }
     const onFormSubmit = (event) => {
         event.preventDefault();
-        if (!editTodo) {
-            setTodos([...todos, { id: uuidV4(), title: input, completed: false }]);
+        // if (!editTodo) {
+            setTodos([...todos, { id: uuidV4(), title: input, completed: false, edit: false }]);
             setInput("");
-        } else {
-            updateTodo(input, editTodo.id, editTodo.completed)
-        }
+        // } else {
+        //     updateTodo(input, editTodo.id, editTodo.completed, editTodo.edit)
+        // }
 
     };
 
@@ -46,7 +50,7 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
                 onChange={onInputChange}
             />
             <button className='button-add' type='submit'>
-            {editTodo ? "Update" : "Add"}
+            Add
             </button>
         </form>
     );

@@ -6,15 +6,28 @@ import Todoslist from './componenets/Todoslist';
 
 
 const App = () => {
-  const initialState = JSON.parse(localStorage.getItem("todos")) || [];
   const [input , setInput] = useState("");
-  const [todos , setTodos] = useState([initialState]);
+  const [todos , setTodos] = useState([]);
   const [editTodo , setEditTodo] = useState(null);
 
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
-
+  const onUpdate = (e) => {
+    const update = todos.map((t) => {
+      if(e.id === t.id){
+        return{
+          ...t,
+          title: input,
+          edit: false
+        }
+      }else{
+        return{
+          ...t,
+          edit: false
+        }
+      }
+    })
+    setTodos(update)
+  }
+  console.log(todos,input, 'todos')
   return (
     <div className='container'>
       <div className='app-wrapper'>
@@ -32,7 +45,9 @@ const App = () => {
           />
         </div>
         <div>
-          <Todoslist  todos={todos} setTodos={setTodos} setEditTodo={setEditTodo} />
+          <Todoslist  todos={todos} 
+          onUpdate={onUpdate}
+          setTodos={setTodos} setEditTodo={setEditTodo} />
         </div>
       </div>
 

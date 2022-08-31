@@ -15,6 +15,16 @@ body{
   background-color: #e1b382;
   cursor: pointer;
 }
+.button-add-update {
+  width: 100px;
+  padding: 5px 15px;
+  font-size: 20px;
+  border-radius: 10px;
+  border: 0;
+  background-color: #e1b382;
+  cursor: pointer;
+
+}
 
 
 .task-input{

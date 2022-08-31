@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Todoslist = ({ todos, setTodos , setEditTodo }) => {
+const Todoslist = ({ todos, setTodos , setEditTodo, onUpdate = () => {} }) => {
 
 
 const handleEdit = ({id}) => {
@@ -21,13 +21,23 @@ const handleEdit = ({id}) => {
                         className={'list ${todo.completed ? "completed": ""}'}
                         onChange={(event) => event.preventDefault()} />
                     <div>
-                        
+                    {
+                        todo.edit ?
+                        <button className='button-add-update' onClick={() => onUpdate(todo)}>
+                            Update 
+                            </button>
+                    
+                        :
+                        <>
                     <button className='button-edit task-button'onClick={() => handleEdit(todo)}>
                             <i className='fa fa-edit'> </i>
                         </button>
                         <button className="button-delete task-button"   onClick={() => handleDelete(todo)} >
                             <i className='fa fa-trash'> </i>
                         </button>
+                        </>
+
+                    }
                     </div>
                 </li>
 
