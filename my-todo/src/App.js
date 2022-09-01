@@ -7,15 +7,17 @@ import Todoslist from './componenets/Todoslist';
 
 const App = () => {
   const [input , setInput] = useState("");
+  const [inputEdit , setInputEdit] = useState("");
+
   const [todos , setTodos] = useState([]);
   const [editTodo , setEditTodo] = useState(null);
 
-  const onUpdate = (e) => {
+  const onUpdate = (e, text) => {
     const update = todos.map((t) => {
       if(e.id === t.id){
         return{
           ...t,
-          title: input,
+          title: text,
           edit: false
         }
       }else{
@@ -47,6 +49,8 @@ const App = () => {
         <div>
           <Todoslist  todos={todos} 
           onUpdate={onUpdate}
+          setInputEdit={setInputEdit}
+          inputEdit={inputEdit}
           setTodos={setTodos} setEditTodo={setEditTodo} />
         </div>
       </div>

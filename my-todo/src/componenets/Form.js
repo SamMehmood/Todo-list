@@ -14,12 +14,15 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
     }
     useEffect(() => {
         if (editTodo) {
-            setInput(editTodo.title);
+            console.log(editTodo, 'dit')
+            // setInput(editTodo.title);
             const newTodo = todos.map((todo) =>
             todo.id === editTodo.id ? { ...todo, edit: true} : { ...todo, edit: false}
             );
             setTodos(newTodo)
+            console.log(newTodo)
         } else {
+            console.log('newTodo')
             setInput("")
         }
     }, [setInput, editTodo]);
@@ -37,7 +40,7 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
         // }
 
     };
-
+    console.log(input)
 
     return (
         <form onSubmit={onFormSubmit}>
