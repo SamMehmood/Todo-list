@@ -83,7 +83,7 @@ margin-right: 10px;
 }
 
 
-.container{
+.container1{
 background: linear-gradient()to right bottom, #e1b382, #c89666;
 width: 100%;
 min-height: 100vh;
@@ -92,7 +92,7 @@ justify-content: center;
 align-items: center;
 }
 
-.app-wrapper{
+.app-wrapper1{
   background-color: #12343b;
   min-width: 450px;
   min-height: 650px;

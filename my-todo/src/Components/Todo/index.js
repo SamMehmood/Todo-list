@@ -5,10 +5,6 @@ import Todoslist from '../../componenets/Todoslist';
 import '../../App.css';
 import { auth } from '../../firebase';
 import { Link } from 'react-router-dom';
-// import Form from './componenets/Form';
-// import Header from './componenets/Header';
-// import Todoslist from './componenets/Todoslist';
-// import { auth } from "./firebase";
 
 const RodoList = () => {
   const [input, setInput] = useState("");
@@ -51,8 +47,8 @@ const RodoList = () => {
       <h1>
           <Link to="/">Back</Link>
         </h1>
-    <div className='container'>
-      <div className='app-wrapper'>
+    <div className='container1'>
+      <div className='app-wrapper1'>
         <div>
           <Header />
         </div>
